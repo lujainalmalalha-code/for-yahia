@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For Yahia ❤️</title>
+
+<style>
+body {
+  margin:0;
+  padding:0;
+  height:100vh;
+  background:#f5efe6;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family: Arial, sans-serif;
+  text-align:center;
+  overflow:hidden;
+}
+
+.container {
+  position:relative;
+}
+
+h1 {
+  font-size:28px;
+  margin:20px 0;
+}
+
+button {
+  padding:10px 25px;
+  font-size:16px;
+  border-radius:20px;
+  border:none;
+  cursor:pointer;
+  margin:10px;
+  transition:0.3s;
+}
+
+.yes {
+  background:#ff4d6d;
+  color:white;
+}
+
+.no {
+  background:#cbd5e1;
+}
+
+#celebration {
+  display:none;
+  margin-top:20px;
+}
+
+.couple-img {
+  width:260px;
+  border-radius:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+  margin-top:15px;
+}
+
+.firework {
+  position:absolute;
+  font-size:30px;
+  animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+  0% { transform:scale(0); opacity:1; }
+  100% { transform:scale(2); opacity:0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div style="font-size:60px;">❤️</div>
+  <h1>Yahia will you be my Valentine? ❤️</h1>
+
+  <button class="no" id="noBtn">No 🥺</button>
+  <button class="yes" onclick="sayYes()">Yes 💖</button>
+
+  <div id="celebration">
+    <h2>YAAAY!! 🥳🌹</h2>
+    <img src="couple.jpg" class="couple-img">
+  </div>
+</div>
+
+<script>
+function sayYes(){
+  document.getElementById("celebration").style.display="block";
+  createFireworks();
+}
+
+var noBtn = document.getElementById("noBtn");
+noBtn.addEventListener("mouseover", function(){
+  var x = Math.random() * (window.innerWidth - 100);
+  var y = Math.random() * (window.innerHeight - 50);
+  noBtn.style.position="absolute";
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+});
+
+function createFireworks(){
+  for(let i=0;i<25;i++){
+    let fw = document.createElement("div");
+    fw.className="firework";
+    fw.innerHTML="🎆";
+    fw.style.left=Math.random()*window.innerWidth+"px";
+    fw.style.top=Math.random()*window.innerHeight+"px";
+    document.body.appendChild(fw);
+
+    setTimeout(()=>fw.remove(),1000);
+  }
+}
+</script>
+
+</body>
+</html>
